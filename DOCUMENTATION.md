@@ -2,7 +2,7 @@
 ---
 Készítette: Kiss Zoltán Máté, Boros Péter, Morzsa Milán Dominik
 
-## 🏗️ Architektúra
+## Architektúra
 
 ### Általános Struktúra
 
@@ -1120,9 +1120,7 @@ export const environment = {
 
 ```bash
 ng serve
-# vagy
 ng serve --open
-# vagy custom port
 ng serve --port 4300
 ```
 ---
@@ -1133,7 +1131,6 @@ ng serve --port 4300
 
 ```bash
 ng test
-# vagy coverage-el
 ng test --code-coverage
 ```
 
