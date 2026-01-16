@@ -1,16 +1,349 @@
-# Közreműködési Útmutató
+# SkillForge - Program Dokumentáció
 
-Köszönjük, hogy érdekel a SkillForge projekt fejlesztése! Ez a dokumentum útmutatást nyújt a hozzájáruláshoz.
+## 📚 Dokumentációs Hivatkozások
 
-## 📋 Tartalomjegyzék
+Üdvözöllek a SkillForge dokumentációs központjában! Itt megtalálod az összes szükséges információt a projekt megértéséhez, használatához és fejlesztéséhez.
 
-- [Magatartási Kódex](#magatartási-kódex)
-- [Hogyan járulhatok hozzá?](#hogyan-járulhatok-hozzá)
-- [Fejlesztői Környezet Beállítása](#fejlesztői-környezet-beállítása)
-- [Kódolási Standardok](#kódolási-standardok)
-- [Commit Üzenetek](#commit-üzenetek)
-- [Pull Request Folyamat](#pull-request-folyamat)
-- [Issue-k Jelentése](#issue-k-jelentése)
+## 📖 Fő Dokumentációk
+
+### 1. [README.md](README.md) - Gyors Áttekintés
+A projekt alapvető információi, telepítés, használat és gyors bevezető.
+
+**Tartalom:**
+- ✨ Funkciók áttekintése
+- 🛠️ Technológiai stack
+- 📦 Telepítési útmutató
+- 🚀 Használati instrukciók
+- 📞 Kapcsolat és támogatás
+
+### 2. [DOCUMENTATION.md](DOCUMENTATION.md) - Teljes Programdokumentáció
+Részletes, technikai dokumentáció az egész alkalmazásról.
+
+**Tartalom:**
+- 🏗️ Architektúra és struktúra
+- 🧩 Komponensek részletes leírása
+- 🔧 Szolgáltatások (Services) dokumentációja
+- 📦 Modulok felépítése
+- 🛣️ Routing és navigáció
+- 📊 Adatmodellek
+- 🎨 Design system és styling
+- 🔌 API kommunikáció
+- 🔒 Autentikáció és biztonság
+- ⚙️ Környezeti konfigurációk
+
+### 3. [CHANGELOG.md](CHANGELOG.md) - Verzió Történet
+Az összes verzió változtatásainak nyomon követése.
+
+**Tartalom:**
+- 📅 Verziók listája
+- ✨ Új funkciók
+- 🐛 Hibajavítások
+- 🔧 Módosítások
+- 🚀 Tervezett fejlesztések
+
+---
+
+## 🎯 Gyors Linkek Fejlesztőknek
+
+### Architektúra és Struktúra
+Lásd: [DOCUMENTATION.md - Architektúra](DOCUMENTATION.md#%EF%B8%8F-architektúra)
+
+### Komponensek
+Lásd: [DOCUMENTATION.md - Komponensek](DOCUMENTATION.md#-komponensek-részletes-dokumentációja)
+
+### Services (Szolgáltatások)
+Lásd: [DOCUMENTATION.md - Szolgáltatások](DOCUMENTATION.md#-szolgáltatások-services)
+
+### API Integráció
+Lásd: [DOCUMENTATION.md - API Kommunikáció](DOCUMENTATION.md#-api-kommunikáció)
+
+### Styling Guide
+Lásd: [DOCUMENTATION.md - Design System](DOCUMENTATION.md#-styling-és-design-system)
+
+---
+
+## 🚀 Első Lépések
+
+### 1. Projekt Klónozása
+```bash
+git clone https://github.com/kiszol/skillforge.git
+cd skillforge
+```
+
+### 2. Függőségek Telepítése
+```bash
+npm install
+```
+
+### 3. Development Szerver Indítása
+```bash
+ng serve
+```
+
+### 4. Böngészőben Megnyitás
+Navigálj a `http://localhost:4200/` címre
+
+---
+
+## 📋 Tartalomjegyzék - Gyors Hivatkozások
+
+### Alapvető Dokumentumok
+1. **[README.md](README.md)** - Projekt áttekintés és gyors indítás
+2. **[DOCUMENTATION.md](DOCUMENTATION.md)** - Teljes technikai dokumentáció
+3. **[CHANGELOG.md](CHANGELOG.md)** - Verzió történet és változások
+
+### Technikai Részletek
+
+#### Komponensek Leírása
+- [App Component](DOCUMENTATION.md#1-app-component-root) - Root komponens
+- [Navbar Component](DOCUMENTATION.md#2-navbar-component) - Navigációs sáv
+- [Dashboard Component](DOCUMENTATION.md#3-dashboard-component) - Főoldal
+- [Login Component](DOCUMENTATION.md#4-login-component) - Bejelentkezés
+- [Courses Module](DOCUMENTATION.md#5-courses-module) - Kurzusok kezelése
+  - Course List - Kurzuslista
+  - Course Detail - Kurzus részletek
+  - Course Form - Kurzus létrehozás/szerkesztés
+- [Students Component](DOCUMENTATION.md#6-students-component) - Hallgatók
+- [Instructors Component](DOCUMENTATION.md#7-instructors-component) - Oktatók
+- [Contact Component](DOCUMENTATION.md#8-contact-component) - Kapcsolat
+- [About Component](DOCUMENTATION.md#9-about-component) - Rólunk
+
+#### Services (Szolgáltatások)
+- [AuthService](DOCUMENTATION.md#1-authservice) - Autentikáció
+- [CourseService](DOCUMENTATION.md#2-courseservice) - Kurzusok CRUD
+- [RealtimeService](DOCUMENTATION.md#3-realtimeservice) - WebSocket
+
+#### Modulok
+- [CoreModule](DOCUMENTATION.md#1-coremodule) - Singleton szolgáltatások
+- [SharedModule](DOCUMENTATION.md#2-sharedmodule) - Közös komponensek
+- [CoursesModule](DOCUMENTATION.md#3-coursesmodule) - Kurzusok feature modul
+
+#### Routing és Adatok
+- [Routing Konfiguráció](DOCUMENTATION.md#%EF%B8%8F-routing-és-navigáció) - Route-ok beállítása
+- [Adatmodellek](DOCUMENTATION.md#-adatmodellek) - TypeScript interfészek
+
+#### Design és Styling
+- [Design System](DOCUMENTATION.md#-styling-és-design-system) - SCSS változók és konvenciók
+- [Styling Pattern](DOCUMENTATION.md#komponens-styling-pattern) - Komponens stílus minta
+
+#### API és Biztonság
+- [API Kommunikáció](DOCUMENTATION.md#-api-kommunikáció) - HTTP Interceptor
+- [Autentikáció](DOCUMENTATION.md#-autentikáció-és-biztonság) - Token kezelés
+- [Környezeti Változók](DOCUMENTATION.md#%EF%B8%8F-környezeti-konfigurációk) - Environment fájlok
+
+---
+
+## 💡 Gyakori Feladatok
+
+### Új Komponens Hozzáadása
+```bash
+ng generate component path/to/component-name
+```
+Részletek: [DOCUMENTATION.md - Fejlesztési Útmutató](DOCUMENTATION.md#-fejlesztési-útmutató)
+
+### Új Service Létrehozása
+```bash
+ng generate service path/to/service-name
+```
+
+### Új Route Hozzáadása
+Szerkeszd az `app-routing.module.ts` fájlt.
+Példa: [DOCUMENTATION.md - Routing](DOCUMENTATION.md#route-konfiguráció)
+
+### API Hívás Implementálása
+Használd a Service osztályokat.
+Példa: [DOCUMENTATION.md - CourseService](DOCUMENTATION.md#2-courseservice)
+
+### Form Validáció
+Reactive Forms használata validációval.
+Példa: [DOCUMENTATION.md - Course Form](DOCUMENTATION.md#53-course-form-component)
+
+---
+
+## 🧪 Tesztelés
+
+### Unit Tesztek Futtatása
+```bash
+ng test
+```
+
+### Code Coverage
+```bash
+ng test --code-coverage
+```
+
+### E2E Tesztek
+```bash
+ng e2e
+```
+
+Részletek: [DOCUMENTATION.md - Tesztelés](DOCUMENTATION.md#-tesztelés)
+
+---
+
+## 🏗️ Build és Deploy
+
+### Development Build
+```bash
+ng serve
+```
+
+### Production Build
+```bash
+ng build --configuration production
+```
+
+A build output a `dist/` mappában lesz.
+
+Részletek: [DOCUMENTATION.md - Build és Deploy](DOCUMENTATION.md#-build-és-deploy)
+
+---
+
+## 📱 Projekt Struktúra Áttekintése
+
+```
+src/
+├── app/
+│   ├── core/                   # Singleton szolgáltatások
+│   │   ├── interceptors/       # HTTP interceptorok
+│   │   └── services/           # Auth, Realtime stb.
+│   ├── features/               # Feature modulok
+│   │   └── courses/            # Kurzusok modul
+│   ├── pages/                  # Oldal komponensek
+│   ├── shared/                 # Megosztott komponensek
+│   ├── app-routing.module.ts   # Routing
+│   └── app.module.ts           # Root modul
+├── assets/                     # Statikus fájlok
+├── environments/               # Környezeti változók
+└── styles.scss                 # Globális stílusok
+```
+
+Részletes struktúra: [DOCUMENTATION.md - Projekt Struktúra](DOCUMENTATION.md#-projekt-struktúra)
+
+---
+
+## 🔍 Kódolási Konvenciók
+
+### TypeScript
+- **Komponensek**: PascalCase (`CourseListComponent`)
+- **Services**: PascalCase + Service suffix (`CourseService`)
+- **Változók**: camelCase (`courseList`)
+- **Konstansok**: UPPER_SNAKE_CASE (`API_URL`)
+
+### Fájlnevek
+- **Komponens**: `component-name.component.ts`
+- **Service**: `service-name.service.ts`
+- **Model**: `model-name.model.ts`
+
+### CSS/SCSS
+- **Osztályok**: kebab-case (`course-card`)
+- **BEM módszer**: block__element--modifier
+
+Teljes guide: [DOCUMENTATION.md - Kódolási Standardok](DOCUMENTATION.md#kódolási-standardok)
+
+---
+
+## 🔗 Hasznos Parancsok
+
+### Angular CLI Parancsok
+```bash
+# Új komponens
+ng g c path/to/component
+
+# Új service
+ng g s path/to/service
+
+# Új modul routing-gal
+ng g m path/to/module --routing
+
+# Build production-re
+ng build --prod
+
+# Tesztek futtatása
+ng test
+
+# Lint ellenőrzés
+ng lint
+```
+
+### Git Parancsok
+```bash
+# Új branch létrehozása
+git checkout -b feature/feature-name
+
+# Változtatások commitolása
+git add .
+git commit -m "feat: add new feature"
+
+# Push
+git push origin feature/feature-name
+```
+
+---
+
+## 📞 Segítségkérés
+
+### Dokumentáció Olvasása
+Először nézd át a [DOCUMENTATION.md](DOCUMENTATION.md) fájlt, amely részletes magyarázatot ad minden komponensről és funkcióról.
+
+### GitHub Issues
+Ha kérdésed van vagy hibát találsz:
+1. Ellenőrizd a meglévő [Issues-t](https://github.com/kiszol/skillforge/issues)
+2. Ha nem találod, nyiss új Issue-t
+3. Használd a megfelelő címkéket (bug, question, enhancement)
+
+### Kapcsolat
+- **Email**: info@skillforge.com
+- **GitHub**: [https://github.com/kiszol/skillforge](https://github.com/kiszol/skillforge)
+
+---
+
+## 📚 További Tanulási Anyagok
+
+### Angular
+- [Angular Official Docs](https://angular.io/docs)
+- [Angular CLI](https://angular.io/cli)
+- [Angular Style Guide](https://angular.io/guide/styleguide)
+
+### TypeScript
+- [TypeScript Docs](https://www.typescriptlang.org/docs/)
+- [TypeScript Deep Dive](https://basarat.gitbook.io/typescript/)
+
+### RxJS
+- [RxJS Docs](https://rxjs.dev/)
+- [Learn RxJS](https://www.learnrxjs.io/)
+
+### SCSS
+- [Sass Documentation](https://sass-lang.com/documentation)
+
+---
+
+## ✅ Checklist Új Fejlesztők Számára
+
+- [ ] README.md elolvasása
+- [ ] DOCUMENTATION.md áttekintése
+- [ ] Projekt klónozása és telepítése
+- [ ] Development szerver futtatása
+- [ ] Projekt struktúra megértése
+- [ ] Egy meglévő komponens áttekintése
+- [ ] API dokumentáció megismerése
+- [ ] Git workflow megértése
+
+---
+
+## 🎉 Köszönetnyilvánítás
+
+Köszönjük, hogy érdekel a SkillForge projekt!
+
+Minden visszajelzést és hozzájárulást nagyra értékelünk. Együtt építsük a legjobb oktatási menedzsment rendszert! 🚀
+
+---
+
+**SkillForge Team** - 2026
+
+*Dokumentáció verzió: 1.0.0*
+*Utolsó frissítés: 2026-01-16*
+
 
 ## 🤝 Magatartási Kódex
 
