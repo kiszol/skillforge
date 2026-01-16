@@ -1,44 +1,12 @@
 # SkillForge - Teljes Programdokumentáció
 ---
 Készítette: Kiss Zoltán Máté, Boros Péter, Morzsa Milán Dominik
----
 
 ## 🏗️ Architektúra
 
 ### Általános Struktúra
 
 A projekt követi az Angular Best Practices-t és a következő architektúrát használja:
-
-```
-┌─────────────────────────────────────────┐
-│         App Module (Root)               │
-│  ┌───────────────────────────────────┐  │
-│  │     Core Module                   │  │
-│  │  - Services (Singleton)           │  │
-│  │  - Interceptors                   │  │
-│  │  - Guards                         │  │
-│  └───────────────────────────────────┘  │
-│  ┌───────────────────────────────────┐  │
-│  │     Shared Module                 │  │
-│  │  - Common Components              │  │
-│  │  - Directives                     │  │
-│  │  - Pipes                          │  │
-│  └───────────────────────────────────┘  │
-│  ┌───────────────────────────────────┐  │
-│  │     Feature Modules               │  │
-│  │  - Courses Module                 │  │
-│  │  - (Future: Students, Teachers)   │  │
-│  └───────────────────────────────────┘  │
-│  ┌───────────────────────────────────┐  │
-│  │     Pages (Lazy Loadable)         │  │
-│  │  - Dashboard                      │  │
-│  │  - Students                       │  │
-│  │  - Instructors                    │  │
-│  │  - Contact                        │  │
-│  │  - About                          │  │
-│  └───────────────────────────────────┘  │
-└─────────────────────────────────────────┘
-```
 
 ### Modul Hierarchia
 
@@ -61,7 +29,7 @@ A projekt követi az Angular Best Practices-t és a következő architektúrát 
 
 ---
 
-## 🧩 Komponensek Részletes Dokumentációja
+## Komponensek Részletes Dokumentációja
 
 ### 1. App Component (Root)
 
@@ -664,8 +632,6 @@ export class ContactComponent implements OnInit {
 **Felelősség**: Autentikáció kezelése.
 
 **Funkciók**:
-- Login
-- Logout
 - Token tárolás
 - Token validáció
 - Felhasználói információk lekérése
@@ -781,7 +747,7 @@ export class CourseService {
 
 ---
 
-## 📦 Modulok
+## Modulok
 
 ### 1. CoreModule
 
@@ -873,7 +839,7 @@ export class CoursesModule { }
 
 ---
 
-## 🛣️ Routing és Navigáció
+## Routing és Navigáció
 
 ### Route Konfiguráció
 
@@ -928,7 +894,7 @@ export class AuthGuard implements CanActivate {
 
 ---
 
-## 📊 Adatmodellek
+## Adatmodellek
 
 ### Course Model
 
@@ -983,7 +949,7 @@ export interface Student {
 
 ---
 
-## 🎨 Styling és Design System
+## Styling és Design System
 
 ### SCSS Változók
 
@@ -1056,7 +1022,7 @@ export interface Student {
 
 ---
 
-## 🔌 API Kommunikáció
+## API Kommunikáció
 
 ### HTTP Interceptor
 
@@ -1094,7 +1060,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
 ---
 
-## 🔒 Autentikáció és Biztonság
+## Autentikáció és Biztonság
 
 ### Token Kezelés
 
@@ -1116,7 +1082,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
 ---
 
-## ⚙️ Környezeti Konfigurációk
+## Környezeti Konfigurációk
 
 ### Development Environment
 
@@ -1148,7 +1114,7 @@ export const environment = {
 
 ---
 
-## 🚀 Build és Deploy
+## Build és Deploy
 
 ### Development Build
 
@@ -1159,52 +1125,9 @@ ng serve --open
 # vagy custom port
 ng serve --port 4300
 ```
-
-### Production Build
-
-```bash
-ng build --configuration production
-# Output: dist/skillforge/
-```
-
-### Build Optimalizálás
-
-- **AOT Compilation**: Ahead-of-Time fordítás
-- **Tree Shaking**: Használaton kívüli kód eltávolítása
-- **Minification**: Kód tömörítése
-- **Lazy Loading**: Modulok késleltetett betöltése
-
 ---
 
-## 📝 Fejlesztési Útmutató
-
-### Új Komponens Létrehozása
-
-```bash
-ng generate component features/your-feature/components/your-component
-# vagy röviden
-ng g c features/your-feature/components/your-component
-```
-
-### Új Service Létrehozása
-
-```bash
-ng generate service features/your-feature/services/your-service
-# vagy röviden
-ng g s features/your-feature/services/your-service
-```
-
-### Új Modul Létrehozása
-
-```bash
-ng generate module features/your-feature --routing
-# vagy röviden
-ng g m features/your-feature --routing
-```
-
----
-
-## 🧪 Tesztelés
+##  Tesztelés
 
 ### Unit Tesztek
 
@@ -1214,24 +1137,4 @@ ng test
 ng test --code-coverage
 ```
 
-### E2E Tesztek
-
-```bash
-ng e2e
-```
-
 ---
-
-## 📚 További Források
-
-- [Angular Dokumentáció](https://angular.io/docs)
-- [TypeScript Dokumentáció](https://www.typescriptlang.org/docs/)
-- [RxJS Dokumentáció](https://rxjs.dev/)
-- [SCSS Dokumentáció](https://sass-lang.com/documentation)
-
----
-
-**SkillForge** - Professzionális Oktatási Menedzsment Rendszer 🎓✨
-
-*Dokumentáció verzió: 1.0.0*
-*Utolsó frissítés: 2026-01-16*
