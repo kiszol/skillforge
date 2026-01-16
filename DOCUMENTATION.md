@@ -1,48 +1,6 @@
 # SkillForge - Teljes Programdokumentáció
-
-## 📚 Tartalomjegyzék
-
-1. [Projekt Áttekintés](#projekt-áttekintés)
-2. [Architektúra](#architektúra)
-3. [Komponensek Részletes Dokumentációja](#komponensek-részletes-dokumentációja)
-4. [Szolgáltatások (Services)](#szolgáltatások-services)
-5. [Modulok](#modulok)
-6. [Routing és Navigáció](#routing-és-navigáció)
-7. [Adatmodellek](#adatmodellek)
-8. [Styling és Design System](#styling-és-design-system)
-9. [API Kommunikáció](#api-kommunikáció)
-10. [Autentikáció és Biztonság](#autentikáció-és-biztonság)
-11. [Környezeti Konfigurációk](#környezeti-konfigurációk)
-
 ---
-
-## 📋 Projekt Áttekintés
-
-### Mi a SkillForge?
-
-A **SkillForge** egy komplett, Angular 14+ alapú oktatási menedzsment rendszer, amely modern technológiákat használ az oktatási intézmények adminisztrációjának egyszerűsítésére.
-
-### Fő Célok
-
-- 🎯 **Egyszerűség**: Könnyen használható felület oktatók és adminisztrátorok számára
-- ⚡ **Teljesítmény**: Gyors, reaktív alkalmazás RxJS használatával
-- 🔒 **Biztonság**: Token alapú autentikáció és védett route-ok
-- 📱 **Reszponzivitás**: Működik minden eszközön (desktop, tablet, mobil)
-- 🎨 **Modern Design**: Tiszta, professzionális megjelenés
-
-### Technológiai Stack
-
-```
-Frontend Framework: Angular 14+
-Nyelv: TypeScript 4.8+
-Styling: SCSS (Sass)
-State Management: RxJS Observables
-HTTP Client: Angular HttpClient
-Routing: Angular Router
-Forms: Reactive Forms & Template-driven Forms
-Build Tool: Angular CLI & Webpack
-```
-
+Készítette: Kiss Zoltán Máté, Boros Péter, Morzsa Milán Dominik
 ---
 
 ## 🏗️ Architektúra
