@@ -32,7 +32,6 @@ A projekt követi az Angular Best Practices-t és a következő architektúrát 
 │  ┌───────────────────────────────────┐  │
 │  │     Pages (Lazy Loadable)         │  │
 │  │  - Dashboard                      │  │
-│  │  - Login                          │  │
 │  │  - Students                       │  │
 │  │  - Instructors                    │  │
 │  │  - Contact                        │  │
