@@ -1,0 +1,51 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-content">
+      <!-- Logo/Brand -->
+      <a routerLink="/dashboard" class="navbar-brand">
+        <span class="brand-text">SkillForge</span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="navbar-menu" [class.active]="menuOpen">
+        <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
+          <span class="nav-icon">📊</span>
+          Dashboard
+        </a>
+        <a routerLink="/courses" routerLinkActive="active" class="nav-link">
+          <span class="nav-icon">📚</span>
+          Kurzusok
+        </a>
+        <a routerLink="/students" routerLinkActive="active" class="nav-link">
+          <span class="nav-icon">👥</span>
+          Hallgatók
+        </a>
+        <a routerLink="/instructors" routerLinkActive="active" class="nav-link">
+          <span class="nav-icon">👨‍🏫</span>
+          Oktatók
+        </a>
+        <a routerLink="/contact" routerLinkActive="active" class="nav-link">
+          <span class="nav-icon">✉️</span>
+          Kapcsolat
+        </a>
+        <a routerLink="/about" routerLinkActive="active" class="nav-link">
+          <span class="nav-icon">ℹ️</span>
+          Rólunk
+        </a>
+      </div>
+
+      <!-- User Menu -->
+      <div class="navbar-actions">
+        <button class="btn btn-outline btn-sm" (click)="logout()">
+          <span class="nav-icon">🚪</span>
+          Kijelentkezés
+        </button>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="navbar-toggle" (click)="toggleMenu()" [class.active]="menuOpen">
+        <span class="toggle-icon">☰</span>
+      </button>
+    </div>
+  </div>
+</nav>

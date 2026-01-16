@@ -1,0 +1,121 @@
+.students-page {
+  padding: 2rem 0;
+  min-height: calc(100vh - 60px);
+
+  .page-header {
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 1rem;
+    }
+  }
+
+  .loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #007bff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    p {
+      margin-top: 1rem;
+      color: #666;
+    }
+  }
+
+  .students-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .student-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .student-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      .student-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-right: 1rem;
+      }
+
+      .student-info {
+        flex: 1;
+
+        h3 {
+          margin: 0;
+          font-size: 1.1rem;
+          color: #333;
+        }
+
+        .email {
+          margin: 0.25rem 0 0 0;
+          font-size: 0.9rem;
+          color: #666;
+        }
+      }
+    }
+
+    .student-stats {
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+
+      .stat {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+
+        .stat-label {
+          color: #666;
+        }
+
+        .stat-value {
+          font-weight: bold;
+          color: #007bff;
+        }
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

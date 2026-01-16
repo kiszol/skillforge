@@ -1,0 +1,61 @@
+<div class="login-container">
+  <div class="login-card card">
+    <div class="login-header">
+      <div class="login-icon">🎓</div>
+      <h1>Edu Internal System</h1>
+      <p class="text-secondary">Jelentkezz be a folytatáshoz</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label class="form-label">Felhasználónév</label>
+        <input 
+          type="text" 
+          class="form-control"
+          [class.error]="f['username'].invalid && f['username'].touched"
+          formControlName="username"
+          placeholder="felhasznalo"
+        />
+        <span class="form-error" *ngIf="f['username'].invalid && f['username'].touched">
+          A felhasználónév megadása kötelező
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Jelszó</label>
+        <input 
+          type="password" 
+          class="form-control"
+          [class.error]="f['password'].invalid && f['password'].touched"
+          formControlName="password"
+          placeholder="••••••••"
+        />
+        <span class="form-error" *ngIf="f['password'].invalid && f['password'].touched">
+          A jelszó megadása kötelező
+        </span>
+      </div>
+
+      <div class="alert alert-error" *ngIf="error">
+        {{ error }}
+      </div>
+
+      <button 
+        type="submit" 
+        class="btn btn-primary btn-block"
+        [disabled]="loading || loginForm.invalid"
+      >
+        <span *ngIf="!loading">🔓 Bejelentkezés</span>
+        <span *ngIf="loading" class="flex items-center justify-center gap-sm">
+          <span class="spinner-small"></span>
+          Folyamatban...
+        </span>
+      </button>
+    </form>
+
+    <div class="login-footer">
+      <p class="text-secondary text-center">
+        © 2026 Edu Internal System
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+<div class="page-wrapper">
+  <div class="container">
+    <div class="loading" *ngIf="loading">
+      <div class="spinner"></div>
+    </div>
+
+    <div class="card" *ngIf="error && !loading">
+      <div class="empty-state">
+        <div class="empty-state-icon">⚠️</div>
+        <p class="text-error">{{ error }}</p>
+        <button class="btn btn-primary mt-md" (click)="goBack()">
+          Vissza a kurzusokhoz
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="course && !loading">
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-lg">
+        <h1>{{ course.title }}</h1>
+        <div class="flex gap-sm">
+          <button class="btn btn-outline" (click)="goBack()">
+            ← Vissza
+          </button>
+          <a [routerLink]="['/courses/edit', course.id]" class="btn btn-primary">
+            ✏️ Szerkesztés
+          </a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="course-detail-grid">
+        <!-- Main Info Card -->
+        <div class="card main-content">
+          <div class="card-header">
+            <h2>Kurzus részletei</h2>
+          </div>
+          <div class="card-body">
+            <div class="detail-row">
+              <span class="detail-label">Státusz:</span>
+              <span class="badge" [ngClass]="getStatusClass(course.status)">
+                {{ getStatusText(course.status) }}
+              </span>
+            </div>
+
+            <div class="detail-row">
+              <span class="detail-label">Nehézségi szint:</span>
+              <span class="text-primary">{{ getDifficultyText(course.difficulty) }}</span>
+            </div>
+
+            <div class="detail-row">
+              <span class="detail-label">Oktató:</span>
+              <span>{{ course.instructor }}</span>
+            </div>
+
+            <div class="detail-row">
+              <span class="detail-label">Létrehozva:</span>
+              <span>{{ course.created_at | date:'yyyy-MM-dd HH:mm' }}</span>
+            </div>
+
+            <div class="detail-section mt-lg">
+              <h3>Leírás</h3>
+              <p class="course-description">{{ course.description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <!-- Quick Actions Card -->
+          <div class="card">
+            <div class="card-header">
+              <h3>Műveletek</h3>
+            </div>
+            <div class="card-body">
+              <div class="flex flex-col gap-sm">
+                <a [routerLink]="['/courses/edit', course.id]" class="btn btn-primary">
+                  ✏️ Szerkesztés
+                </a>
+                <button class="btn btn-danger" (click)="deleteCourse()">
+                  🗑️ Törlés
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Info Card -->
+          <div class="card mt-md">
+            <div class="card-header">
+              <h3>Információ</h3>
+            </div>
+            <div class="card-body">
+              <div class="info-item">
+                <span class="info-icon">📊</span>
+                <div>
+                  <div class="info-label">Státusz</div>
+                  <div class="info-value">{{ getStatusText(course.status) }}</div>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <span class="info-icon">📈</span>
+                <div>
+                  <div class="info-label">Nehézség</div>
+                  <div class="info-value">{{ getDifficultyText(course.difficulty) }}</div>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <span class="info-icon">👨‍🏫</span>
+                <div>
+                  <div class="info-label">Oktató</div>
+                  <div class="info-value">{{ course.instructor }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

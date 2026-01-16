@@ -1,0 +1,153 @@
+<div class="page-wrapper">
+  <div class="container">
+    <div class="flex justify-between items-center mb-lg">
+      <h1>{{ isEditMode ? 'Kurzus szerkesztése' : 'Új kurzus létrehozása' }}</h1>
+      <button class="btn btn-outline" (click)="onCancel()">
+        ← Vissza
+      </button>
+    </div>
+
+    <div class="form-container">
+      <div class="card">
+        <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+          <!-- Title -->
+          <div class="form-group">
+            <label class="form-label">
+              Kurzus címe <span class="text-error">*</span>
+            </label>
+            <input 
+              type="text"
+              class="form-control"
+              [class.error]="title?.invalid && title?.touched"
+              formControlName="title"
+              placeholder="Pl.: Angular Alapok"
+            />
+            <span class="form-error" *ngIf="title?.invalid && title?.touched">
+              <span *ngIf="title?.errors?.['required']">A cím megadása kötelező</span>
+              <span *ngIf="title?.errors?.['minlength']">A címnek legalább 3 karakter hosszúnak kell lennie</span>
+            </span>
+          </div>
+
+          <!-- Description -->
+          <div class="form-group">
+            <label class="form-label">
+              Leírás <span class="text-error">*</span>
+            </label>
+            <textarea 
+              class="form-control"
+              [class.error]="description?.invalid && description?.touched"
+              formControlName="description"
+              rows="5"
+              placeholder="Részletes leírás a kurzusról..."
+            ></textarea>
+            <span class="form-error" *ngIf="description?.invalid && description?.touched">
+              <span *ngIf="description?.errors?.['required']">A leírás megadása kötelező</span>
+              <span *ngIf="description?.errors?.['minlength']">A leírásnak legalább 10 karakter hosszúnak kell lennie</span>
+            </span>
+          </div>
+
+          <!-- Status -->
+          <div class="form-group">
+            <label class="form-label">
+              Státusz <span class="text-error">*</span>
+            </label>
+            <select 
+              class="form-control"
+              [class.error]="status?.invalid && status?.touched"
+              formControlName="status"
+            >
+              <option value="planned">Tervezett</option>
+              <option value="active">Aktív</option>
+              <option value="completed">Befejezett</option>
+            </select>
+            <span class="form-error" *ngIf="status?.invalid && status?.touched">
+              A státusz megadása kötelező
+            </span>
+          </div>
+
+          <!-- Difficulty -->
+          <div class="form-group">
+            <label class="form-label">
+              Nehézségi szint <span class="text-error">*</span>
+            </label>
+            <select 
+              class="form-control"
+              [class.error]="difficulty?.invalid && difficulty?.touched"
+              formControlName="difficulty"
+            >
+              <option value="beginner">Kezdő</option>
+              <option value="intermediate">Középhaladó</option>
+              <option value="advanced">Haladó</option>
+            </select>
+            <span class="form-error" *ngIf="difficulty?.invalid && difficulty?.touched">
+              A nehézségi szint megadása kötelező
+            </span>
+          </div>
+
+          <!-- Instructor -->
+          <div class="form-group">
+            <label class="form-label">
+              Oktató neve <span class="text-error">*</span>
+            </label>
+            <input 
+              type="text"
+              class="form-control"
+              [class.error]="instructor?.invalid && instructor?.touched"
+              formControlName="instructor"
+              placeholder="Pl.: Dr. Kiss János"
+            />
+            <span class="form-error" *ngIf="instructor?.invalid && instructor?.touched">
+              Az oktató nevének megadása kötelező
+            </span>
+          </div>
+
+          <!-- Submit Error -->
+          <div class="alert alert-error" *ngIf="submitError">
+            {{ submitError }}
+          </div>
+
+          <!-- Form Actions -->
+          <div class="form-actions">
+            <button 
+              type="button" 
+              class="btn btn-outline"
+              (click)="onCancel()"
+              [disabled]="loading"
+            >
+              Mégse
+            </button>
+            <button 
+              type="submit" 
+              class="btn btn-primary"
+              [disabled]="loading || courseForm.invalid"
+            >
+              <span *ngIf="!loading">
+                {{ isEditMode ? '💾 Mentés' : '➕ Létrehozás' }}
+              </span>
+              <span *ngIf="loading" class="flex items-center gap-sm">
+                <span class="spinner-small"></span>
+                Folyamatban...
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Info Card -->
+      <div class="card info-card">
+        <div class="card-header">
+          <h3>📋 Kitöltési útmutató</h3>
+        </div>
+        <div class="card-body">
+          <ul class="info-list">
+            <li>A csillaggal jelölt mezők kitöltése kötelező</li>
+            <li>A cím legalább 3 karakter hosszú legyen</li>
+            <li>A leírás legalább 10 karakter hosszú legyen</li>
+            <li>Válaszd ki a kurzus aktuális státuszát</li>
+            <li>Add meg a megfelelő nehézségi szintet</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<div class="page-wrapper">
+  <div class="container">
+    <div class="flex justify-between items-center mb-lg">
+      <h1>Dashboard</h1>
+      <button class="btn btn-primary" (click)="refreshStats()">
+        <span class="icon">🔄</span>
+        Frissítés
+      </button>
+    </div>
+
+    <div class="loading" *ngIf="loading">
+      <div class="spinner"></div>
+    </div>
+
+    <div class="grid grid-cols-4 gap-lg" *ngIf="!loading">
+      <!-- Total Courses Card -->
+      <div class="card">
+        <div class="stat-card">
+          <div class="stat-icon total">
+            <span>📚</span>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-label">Összes kurzus</h3>
+            <p class="stat-value">{{ stats.totalCourses }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Courses Card -->
+      <div class="card">
+        <div class="stat-card">
+          <div class="stat-icon active">
+            <span>✅</span>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-label">Aktív kurzusok</h3>
+            <p class="stat-value">{{ stats.activeCourses }}</p>
+            <span class="badge badge-success">Aktív</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Completed Courses Card -->
+      <div class="card">
+        <div class="stat-card">
+          <div class="stat-icon completed">
+            <span>🎓</span>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-label">Lezárt kurzusok</h3>
+            <p class="stat-value">{{ stats.completedCourses }}</p>
+            <span class="badge badge-info">Befejezett</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Planned Courses Card -->
+      <div class="card">
+        <div class="stat-card">
+          <div class="stat-icon planned">
+            <span>📅</span>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-label">Tervezett kurzusok</h3>
+            <p class="stat-value">{{ stats.plannedCourses }}</p>
+            <span class="badge badge-warning">Tervezett</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="card mt-xl">
+      <div class="card-header">
+        <h2>Gyors műveletek</h2>
+      </div>
+      <div class="card-body">
+        <div class="flex gap-md flex-wrap">
+          <a routerLink="/courses/new" class="btn btn-primary">
+            <span class="icon">➕</span>
+            Új kurzus létrehozása
+          </a>
+          <a routerLink="/courses" class="btn btn-secondary">
+            <span class="icon">📋</span>
+            Kurzusok megtekintése
+          </a>
+          <a routerLink="/students" class="btn btn-outline">
+            <span class="icon">👥</span>
+            Hallgatók kezelése
+          </a>
+          <a routerLink="/instructors" class="btn btn-outline">
+            <span class="icon">👨‍🏫</span>
+            Oktatók kezelése
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Activity (optional) -->
+    <div class="card mt-xl">
+      <div class="card-header">
+        <h2>Legutóbbi aktivitás</h2>
+      </div>
+      <div class="card-body">
+        <div class="empty-state">
+          <div class="empty-state-icon">📊</div>
+          <p>Hamarosan: valós idejű aktivitási hírfolyam</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

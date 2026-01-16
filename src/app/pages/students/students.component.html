@@ -1,0 +1,33 @@
+<div class="students-page">
+  <div class="container">
+    <div class="page-header">
+      <h1>👥 Hallgatók</h1>
+      <p class="subtitle">Hallgatók kezelése és áttekintése</p>
+    </div>
+
+    <div class="students-content">
+      <div class="loading" *ngIf="loading">
+        <div class="spinner"></div>
+        <p>Betöltés...</p>
+      </div>
+
+      <div class="students-grid" *ngIf="!loading">
+        <div class="student-card" *ngFor="let student of students">
+          <div class="student-header">
+            <div class="student-avatar">{{ student.name.charAt(0) }}</div>
+            <div class="student-info">
+              <h3>{{ student.name }}</h3>
+              <p class="email">{{ student.email }}</p>
+            </div>
+          </div>
+          <div class="student-stats">
+            <div class="stat">
+              <span class="stat-label">Kurzusok:</span>
+              <span class="stat-value">{{ student.courses }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

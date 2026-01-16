@@ -1,0 +1,35 @@
+{
+  "name": "edu-internal-system",
+  "version": "1.0.0",
+  "description": "Educational Internal System",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^17.0.0",
+    "@angular/common": "^17.0.0",
+    "@angular/compiler": "^17.0.0",
+    "@angular/core": "^17.0.0",
+    "@angular/forms": "^17.0.0",
+    "@angular/platform-browser": "^17.0.0",
+    "@angular/platform-browser-dynamic": "^17.0.0",
+    "@angular/router": "^17.0.0",
+    "rxjs": "^7.8.0",
+    "tslib": "^2.6.0",
+    "zone.js": "^0.14.0",
+    "socket.io-client": "^4.7.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.0.0",
+    "@angular/cli": "^17.0.0",
+    "@angular/compiler-cli": "^17.0.0",
+    "@types/node": "^20.10.0",
+    "typescript": "~5.2.0"
+  }
+}

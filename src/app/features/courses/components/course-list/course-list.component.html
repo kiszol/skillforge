@@ -1,0 +1,190 @@
+<div class="page-wrapper">
+  <div class="container">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-lg">
+      <h1>Kurzusok</h1>
+      <a routerLink="/courses/new" class="btn btn-primary">
+        <span class="icon">➕</span>
+        Új kurzus
+      </a>
+    </div>
+
+    <!-- Filters & Search -->
+    <div class="card mb-lg">
+      <div class="filters-container">
+        <!-- Search -->
+        <div class="form-group">
+          <label class="form-label">Keresés</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Kurzus címe..."
+            (input)="onSearch($event)"
+          />
+        </div>
+
+        <!-- Status Filter -->
+        <div class="form-group">
+          <label class="form-label">Státusz</label>
+          <select 
+            class="form-control"
+            [(ngModel)]="selectedStatus"
+            (change)="onFilterChange()"
+          >
+            <option value="">Összes</option>
+            <option value="planned">Tervezett</option>
+            <option value="active">Aktív</option>
+            <option value="completed">Befejezett</option>
+          </select>
+        </div>
+
+        <!-- Difficulty Filter -->
+        <div class="form-group">
+          <label class="form-label">Nehézség</label>
+          <select 
+            class="form-control"
+            [(ngModel)]="selectedDifficulty"
+            (change)="onFilterChange()"
+          >
+            <option value="">Összes</option>
+            <option value="beginner">Kezdő</option>
+            <option value="intermediate">Középhaladó</option>
+            <option value="advanced">Haladó</option>
+          </select>
+        </div>
+
+        <!-- Sort -->
+        <div class="form-group">
+          <label class="form-label">Rendezés</label>
+          <div class="flex gap-sm">
+            <select 
+              class="form-control"
+              [(ngModel)]="sortBy"
+              (change)="onSortChange()"
+            >
+              <option value="created_at">Dátum</option>
+              <option value="title">Cím</option>
+              <option value="difficulty">Nehézség</option>
+            </select>
+            <button 
+              class="btn btn-secondary"
+              (click)="toggleSortOrder()"
+              title="Rendezés iránya"
+            >
+              {{ sortOrder === 'asc' ? '↑' : '↓' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div class="loading" *ngIf="loading">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Error State -->
+    <div class="card" *ngIf="error && !loading">
+      <div class="empty-state">
+        <div class="empty-state-icon">⚠️</div>
+        <p class="text-error">{{ error }}</p>
+        <button class="btn btn-primary mt-md" (click)="loadCourses()">
+          Újrapróbálkozás
+        </button>
+      </div>
+    </div>
+
+    <!-- Courses Table -->
+    <div class="table-container" *ngIf="!loading && !error && courses.length > 0">
+      <table>
+        <thead>
+          <tr>
+            <th>Cím</th>
+            <th>Oktató</th>
+            <th>Státusz</th>
+            <th>Nehézség</th>
+            <th>Létrehozva</th>
+            <th class="text-center">Műveletek</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let course of courses">
+            <td>
+              <strong>{{ course.title }}</strong>
+              <p class="text-secondary" style="font-size: 14px; margin: 4px 0 0 0;">
+                {{ course.description | slice:0:60 }}{{ course.description.length > 60 ? '...' : '' }}
+              </p>
+            </td>
+            <td>{{ course.instructor }}</td>
+            <td>
+              <span class="badge" [ngClass]="getStatusClass(course.status)">
+                {{ getStatusText(course.status) }}
+              </span>
+            </td>
+            <td>{{ getDifficultyText(course.difficulty) }}</td>
+            <td>{{ course.created_at | date:'yyyy-MM-dd' }}</td>
+            <td>
+              <div class="table-actions">
+                <button 
+                  class="btn btn-sm btn-secondary"
+                  (click)="viewCourse(course.id!)"
+                  title="Megtekintés"
+                >
+                  👁️
+                </button>
+                <button 
+                  class="btn btn-sm btn-primary"
+                  (click)="editCourse(course.id!)"
+                  title="Szerkesztés"
+                >
+                  ✏️
+                </button>
+                <button 
+                  class="btn btn-sm btn-danger"
+                  (click)="deleteCourse(course)"
+                  title="Törlés"
+                >
+                  🗑️
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Empty State -->
+    <div class="card" *ngIf="!loading && !error && courses.length === 0">
+      <div class="empty-state">
+        <div class="empty-state-icon">📚</div>
+        <p>Még nincsenek kurzusok</p>
+        <a routerLink="/courses/new" class="btn btn-primary mt-md">
+          Első kurzus létrehozása
+        </a>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-container" *ngIf="!loading && totalPages > 1">
+      <button 
+        class="btn btn-outline"
+        (click)="previousPage()"
+        [disabled]="currentPage === 1"
+      >
+        ← Előző
+      </button>
+      
+      <div class="pagination-info">
+        Oldal {{ currentPage }} / {{ totalPages }} (összesen: {{ totalItems }} kurzus)
+      </div>
+
+      <button 
+        class="btn btn-outline"
+        (click)="nextPage()"
+        [disabled]="currentPage === totalPages"
+      >
+        Következő →
+      </button>
+    </div>
+  </div>
+</div>

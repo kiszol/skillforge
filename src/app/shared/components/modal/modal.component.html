@@ -1,0 +1,17 @@
+<div class="modal-backdrop" *ngIf="isOpen" (click)="close()">
+  <div class="modal-dialog" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>{{ title }}</h2>
+      <button class="modal-close" (click)="close()">✕</button>
+    </div>
+    <div class="modal-body">
+      <ng-content></ng-content>
+    </div>
+    <div class="modal-footer" *ngIf="showFooter">
+      <button class="btn btn-outline" (click)="close()">Bezárás</button>
+      <button class="btn btn-primary" (click)="confirm()" *ngIf="showConfirmButton">
+        {{ confirmText }}
+      </button>
+    </div>
+  </div>
+</div>

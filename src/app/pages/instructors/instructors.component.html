@@ -1,0 +1,33 @@
+<div class="instructors-page">
+  <div class="container">
+    <div class="page-header">
+      <h1>👨‍🏫 Oktatók</h1>
+      <p class="subtitle">Oktatók kezelése és áttekintése</p>
+    </div>
+
+    <div class="instructors-content">
+      <div class="loading" *ngIf="loading">
+        <div class="spinner"></div>
+        <p>Betöltés...</p>
+      </div>
+
+      <div class="instructors-grid" *ngIf="!loading">
+        <div class="instructor-card" *ngFor="let instructor of instructors">
+          <div class="instructor-header">
+            <div class="instructor-avatar">{{ instructor.name.split(' ')[1].charAt(0) }}</div>
+            <div class="instructor-info">
+              <h3>{{ instructor.name }}</h3>
+              <p class="department">{{ instructor.department }}</p>
+            </div>
+          </div>
+          <div class="instructor-stats">
+            <div class="stat">
+              <span class="stat-label">Kurzusok:</span>
+              <span class="stat-value">{{ instructor.courses }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
